@@ -21,7 +21,7 @@
                 "ENABLE_TX1750": false,
                 "ENABLE_PWRON_PASSWORD": false,
                 "ENABLE_DTMF_CALLING": false,
-                "ENABLE_FLASHLIGHT": true,
+                "ENABLE_FLASHLIGHT":false,
                 "ENABLE_SPECTRUM": false,
                 "ENABLE_BIG_FREQ": true,
                 "ENABLE_SMALL_BOLD": false,
