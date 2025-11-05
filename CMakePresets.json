@@ -80,9 +80,9 @@
             "name": "Broadcast",
             "inherits": "default",
             "cacheVariables": {
-                "ENABLE_SPECTRUM": false,
+                "ENABLE_SPECTRUM": true,
                 "ENABLE_FMRADIO": true,
-                "ENABLE_VOX": true,
+                "ENABLE_VOX": false,
                 "ENABLE_AIRCOPY": false,
                 "ENABLE_FEAT_F4HWN_SCREENSHOT": false,
                 "ENABLE_FEAT_F4HWN_GAME": false,
