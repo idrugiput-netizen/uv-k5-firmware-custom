@@ -54,7 +54,7 @@
                 "ENABLE_FEAT_F4HWN_SPECTRUM": true,
                 "ENABLE_FEAT_F4HWN_RX_TX_TIMER": false,
                 "ENABLE_FEAT_F4HWN_CHARGING_C": false,
-                "ENABLE_FEAT_F4HWN_SLEEP": true,
+                "ENABLE_FEAT_F4HWN_SLEEP": false,
                 "ENABLE_FEAT_F4HWN_RESUME_STATE": true,
                 "ENABLE_FEAT_F4HWN_NARROWER": true,
                 "ENABLE_FEAT_F4HWN_INV": false,
@@ -80,7 +80,7 @@
             "name": "Broadcast",
             "inherits": "default",
             "cacheVariables": {
-                "ENABLE_SPECTRUM": true,
+                "ENABLE_SPECTRUM": false,
                 "ENABLE_FMRADIO": true,
                 "ENABLE_VOX": true,
                 "ENABLE_AIRCOPY": false,
