@@ -22,7 +22,7 @@
                 "ENABLE_PWRON_PASSWORD": false,
                 "ENABLE_DTMF_CALLING": false,
                 "ENABLE_FLASHLIGHT": true,
-                "ENABLE_SPECTRUM": false,
+                "ENABLE_SPECTRUM": true,
                 "ENABLE_BIG_FREQ": true,
                 "ENABLE_SMALL_BOLD": true,
                 "ENABLE_CUSTOM_MENU_LAYOUT": true,
