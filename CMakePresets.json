@@ -40,7 +40,7 @@
                 "ENABLE_FASTER_CHANNEL_SCAN": true,
                 "ENABLE_RSSI_BAR": true,
                 "ENABLE_AUDIO_BAR": false,
-                "ENABLE_COPY_CHAN_TO_VFO": true,
+                "ENABLE_COPY_CHAN_TO_VFO": false,
                 "ENABLE_REDUCE_LOW_MID_TX_POWER": false,
                 "ENABLE_BYP_RAW_DEMODULATORS": false,
                 "ENABLE_BLMIN_TMP_OFF": false,
