@@ -55,7 +55,7 @@
                 "ENABLE_FEAT_F4HWN_RX_TX_TIMER": false,
                 "ENABLE_FEAT_F4HWN_CHARGING_C": false,
                 "ENABLE_FEAT_F4HWN_SLEEP": false,
-                "ENABLE_FEAT_F4HWN_RESUME_STATE": true,
+                "ENABLE_FEAT_F4HWN_RESUME_STATE": false,
                 "ENABLE_FEAT_F4HWN_NARROWER": true,
                 "ENABLE_FEAT_F4HWN_INV": false,
                 "ENABLE_FEAT_F4HWN_CTR": true,
@@ -64,7 +64,7 @@
                 "ENABLE_FEAT_F4HWN_RESET_CHANNEL": false,
                 "ENABLE_FEAT_F4HWN_PMR": false,
                 "ENABLE_FEAT_F4HWN_GMRS_FRS_MURS": false,
-                "ENABLE_FEAT_F4HWN_CA": false,
+                "ENABLE_FEAT_F4HWN_CA": true,
                 "ENABLE_FEAT_F4HWN_DEBUG": false,
 
                 "ENABLE_AM_FIX_SHOW_DATA": false,
