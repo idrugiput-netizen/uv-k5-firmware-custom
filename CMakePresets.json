@@ -51,7 +51,7 @@
                 "ENABLE_FEAT_F4HWN": true,
                 "ENABLE_FEAT_F4HWN_GAME": false,
                 "ENABLE_FEAT_F4HWN_SCREENSHOT": false,
-                "ENABLE_FEAT_F4HWN_SPECTRUM": true,
+                "ENABLE_FEAT_F4HWN_SPECTRUM": false,
                 "ENABLE_FEAT_F4HWN_RX_TX_TIMER": false,
                 "ENABLE_FEAT_F4HWN_CHARGING_C": false,
                 "ENABLE_FEAT_F4HWN_SLEEP": false,
