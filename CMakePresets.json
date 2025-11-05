@@ -64,7 +64,7 @@
                 "ENABLE_FEAT_F4HWN_RESET_CHANNEL": false,
                 "ENABLE_FEAT_F4HWN_PMR": false,
                 "ENABLE_FEAT_F4HWN_GMRS_FRS_MURS": false,
-                "ENABLE_FEAT_F4HWN_CA": true,
+                "ENABLE_FEAT_F4HWN_CA": false,
                 "ENABLE_FEAT_F4HWN_DEBUG": false,
 
                 "ENABLE_AM_FIX_SHOW_DATA": false,
