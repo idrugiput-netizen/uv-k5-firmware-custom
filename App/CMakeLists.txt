@@ -100,18 +100,18 @@ enable_feature(ENABLE_UART
     app/uart.c
     # driver/aes.c
 )
-enable_feature(ENABLE_AIRCOPY
+# enable_feature(ENABLE_AIRCOPY
     app/aircopy.c 
     ui/aircopy.c
 )
-enable_feature(ENABLE_NOAA)
-enable_feature(ENABLE_VOICE 
+# enable_feature(ENABLE_NOAA)
+# enable_feature(ENABLE_VOICE 
     driver/voice.c
 )
-enable_feature(ENABLE_VOX)
-enable_feature(ENABLE_ALARM)
-enable_feature(ENABLE_TX1750)
-enable_feature(ENABLE_PWRON_PASSWORD
+# enable_feature(ENABLE_VOX)
+# enable_feature(ENABLE_ALARM)
+# enable_feature(ENABLE_TX1750)
+# enable_feature(ENABLE_PWRON_PASSWORD
     ui/lock.c
 )
 enable_feature(ENABLE_DTMF_CALLING)
@@ -134,7 +134,7 @@ enable_feature(ENABLE_F_CAL_MENU)
 enable_feature(ENABLE_CTCSS_TAIL_PHASE_SHIFT)
 enable_feature(ENABLE_BOOT_BEEPS)
 enable_feature(ENABLE_SHOW_CHARGE_LEVEL)
-enable_feature(ENABLE_REVERSE_BAT_SYMBOL)
+# enable_feature(ENABLE_REVERSE_BAT_SYMBOL)
 enable_feature(ENABLE_NO_CODE_SCAN_TIMEOUT)
 enable_feature(ENABLE_AM_FIX
     am_fix.c
@@ -161,10 +161,10 @@ enable_feature(ENABLE_EXTRA_UART_CMD)
 # ---- F4HWN MODS ----
 
 enable_feature(ENABLE_FEAT_F4HWN)
-enable_feature(ENABLE_FEAT_F4HWN_GAME 
+# enable_feature(ENABLE_FEAT_F4HWN_GAME 
     app/breakout.c
 )
-enable_feature(ENABLE_FEAT_F4HWN_SCREENSHOT 
+# enable_feature(ENABLE_FEAT_F4HWN_SCREENSHOT 
     screenshot.c
 )
 enable_feature(ENABLE_FEAT_F4HWN_SPECTRUM)
@@ -173,15 +173,15 @@ enable_feature(ENABLE_FEAT_F4HWN_CHARGING_C)
 enable_feature(ENABLE_FEAT_F4HWN_SLEEP)
 enable_feature(ENABLE_FEAT_F4HWN_RESUME_STATE)
 enable_feature(ENABLE_FEAT_F4HWN_NARROWER)
-enable_feature(ENABLE_FEAT_F4HWN_INV)
+# enable_feature(ENABLE_FEAT_F4HWN_INV)
 enable_feature(ENABLE_FEAT_F4HWN_CTR)
-enable_feature(ENABLE_FEAT_F4HWN_RESCUE_OPS)
+# enable_feature(ENABLE_FEAT_F4HWN_RESCUE_OPS)
 enable_feature(ENABLE_FEAT_F4HWN_VOL)
 enable_feature(ENABLE_FEAT_F4HWN_RESET_CHANNEL)
-enable_feature(ENABLE_FEAT_F4HWN_PMR)
-enable_feature(ENABLE_FEAT_F4HWN_GMRS_FRS_MURS)
+# enable_feature(ENABLE_FEAT_F4HWN_PMR)
+# enable_feature(ENABLE_FEAT_F4HWN_GMRS_FRS_MURS)
 enable_feature(ENABLE_FEAT_F4HWN_CA)
-enable_feature(ENABLE_FEAT_F4HWN_DEBUG)
+# enable_feature(ENABLE_FEAT_F4HWN_DEBUG)
 
 # ---- DEBUGGING ----
 
