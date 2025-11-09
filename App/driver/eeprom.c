@@ -28,19 +28,22 @@ void EEPROM_WriteBuffer(uint32_t Address, const void *pBuffer, uint16_t Size)
     if (pBuffer == NULL || Address + Size > EEPROM_MAX_ADDRESS)
         return;
 
-    uint8_t buffer[32];  // uporedi sa postojećim podacima, možeš povećati veličinu ako želiš
-    EEPROM_ReadBuffer(Address, buffer, Size);
-    if (memcmp(pBuffer, buffer, Size) == 0)
-        return;
+    uint8_t buffer[32];  // Uporedi postojeće podatke da se izbegne nepotreban upis
+    uint16_t chunkSize = (Size > 32) ? 32 : Size;
 
-    I2C_Start();
-    I2C_Write(0xA0);  // Write mode
+    for (uint16_t offset = 0; offset < Size; offset += chunkSize) {
+        uint16_t currentSize = (Size - offset > chunkSize) ? chunkSize : (Size - offset);
+        EEPROM_ReadBuffer(Address + offset, buffer, currentSize);
+        if (memcmp((uint8_t*)pBuffer + offset, buffer, currentSize) == 0)
+            continue;
 
-    I2C_Write((Address >> 8) & 0xFF);  // MSB
-    I2C_Write(Address & 0xFF);         // LSB
+        I2C_Start();
+        I2C_Write(0xA0);
+        I2C_Write(((Address + offset) >> 8) & 0xFF);
+        I2C_Write((Address + offset) & 0xFF);
+        I2C_WriteBuffer((uint8_t*)pBuffer + offset, currentSize);
+        I2C_Stop();
 
-    I2C_WriteBuffer(pBuffer, Size);
-    I2C_Stop();
-
-    SYSTEM_DelayMs(8);  // čekanje dok EEPROM završi upis
+        SYSTEM_DelayMs(8);
+    }
 }
