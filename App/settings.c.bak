@@ -518,7 +518,7 @@ void SETTINGS_FactoryReset(bool bIsAll)
                 ))
             )
         {
-            EEPROM_WriteBuffer(i, Template, sizeof(Template));
+            EEPROM_WriteBuffer(i, Template);
         }
     }
 
@@ -539,7 +539,7 @@ void SETTINGS_FactoryReset(bool bIsAll)
         #endif
 
         #ifdef ENABLE_FEAT_F4HWN
-            EEPROM_WriteBuffer(0x1FF0, Template, sizeof(Template));
+            EEPROM_WriteBuffer(0x1FF0, Template);
         #endif
     }
 }
@@ -564,10 +564,10 @@ void SETTINGS_SaveFM(void)
         fmCfg.isMrMode = gEeprom.FM_IsMrMode;
         fmCfg.band     = gEeprom.FM_Band;
         //fmCfg.space    = gEeprom.FM_Space;
-        EEPROM_WriteBuffer(0x0E88, fmCfg.__raw, sizeof(fmCfg.__raw));
+        EEPROM_WriteBuffer(0x0E88, fmCfg.__raw);
 
         for (unsigned i = 0; i < 5; i++)
-            EEPROM_WriteBuffer(0x0E40 + (i * 8), &gFM_Channels[i * 4], sizeof(&gFM_Channels[i * 4]));
+            EEPROM_WriteBuffer(0x0E40 + (i * 8), &gFM_Channels[i * 4]);
     }
 #endif
 
@@ -590,7 +590,7 @@ void SETTINGS_SaveVfoIndices(void)
         State[7] = gEeprom.NoaaChannel[1];
     #endif
 
-    EEPROM_WriteBuffer(0x0E80, State, sizeof(State));
+    EEPROM_WriteBuffer(0x0E80, State);
 }
 
 void SETTINGS_SaveSettings(void)
@@ -625,7 +625,7 @@ void SETTINGS_SaveSettings(void)
         State[6] = 0;
     #endif
     State[7] = gEeprom.MIC_SENSITIVITY;
-    EEPROM_WriteBuffer(0x0E70, State, sizeof(State));
+    EEPROM_WriteBuffer(0x0E70, State);
 
     State[0] = (gEeprom.BACKLIGHT_MIN << 4) + gEeprom.BACKLIGHT_MAX;
     State[1] = gEeprom.CHANNEL_DISPLAY_MODE;
@@ -662,7 +662,7 @@ void SETTINGS_SaveSettings(void)
     #else
         State[7] = gEeprom.VFO_OPEN;
     #endif
-    EEPROM_WriteBuffer(0x0E78, State, sizeof(State));
+    EEPROM_WriteBuffer(0x0E78, State);
 
     State[0] = gEeprom.BEEP_CONTROL;
     State[0] |= gEeprom.KEY_M_LONG_PRESS_ACTION << 1;
@@ -673,12 +673,12 @@ void SETTINGS_SaveSettings(void)
     State[5] = gEeprom.SCAN_RESUME_MODE;
     State[6] = gEeprom.AUTO_KEYPAD_LOCK;
     State[7] = gEeprom.POWER_ON_DISPLAY_MODE;
-    EEPROM_WriteBuffer(0x0E90, State, sizeof(State));
+    EEPROM_WriteBuffer(0x0E90, State);
 
     #ifdef ENABLE_PWRON_PASSWORD
         memset(Password, 0xFF, sizeof(Password));
         Password[0] = gEeprom.POWER_ON_PASSWORD;
-        EEPROM_WriteBuffer(0x0E98, Password, sizeof(Password));
+        EEPROM_WriteBuffer(0x0E98, Password);
     #endif
 
     memset(State, 0xFF, sizeof(State));
@@ -689,7 +689,7 @@ void SETTINGS_SaveSettings(void)
     State[1] = gEeprom.S0_LEVEL;
     State[2] = gEeprom.S9_LEVEL;
 #endif
-    EEPROM_WriteBuffer(0x0EA0, State, sizeof(State));
+    EEPROM_WriteBuffer(0x0EA0, State);
 
 
     #if defined(ENABLE_ALARM) || defined(ENABLE_TX1750)
@@ -701,7 +701,7 @@ void SETTINGS_SaveSettings(void)
     State[2] = gEeprom.REPEATER_TAIL_TONE_ELIMINATION;
     State[3] = gEeprom.TX_VFO;
     State[4] = gEeprom.BATTERY_TYPE;
-    EEPROM_WriteBuffer(0x0EA8, State, sizeof(State));
+    EEPROM_WriteBuffer(0x0EA8, State);
 
     State[0] = gEeprom.DTMF_SIDE_TONE;
 #ifdef ENABLE_DTMF_CALLING
@@ -713,7 +713,7 @@ void SETTINGS_SaveSettings(void)
     State[5] = gEeprom.DTMF_PRELOAD_TIME / 10U;
     State[6] = gEeprom.DTMF_FIRST_CODE_PERSIST_TIME / 10U;
     State[7] = gEeprom.DTMF_HASH_CODE_PERSIST_TIME / 10U;
-    EEPROM_WriteBuffer(0x0ED0, State, sizeof(State));
+    EEPROM_WriteBuffer(0x0ED0, State);
 
     memset(State, 0xFF, sizeof(State));
     State[0] = gEeprom.DTMF_CODE_PERSIST_TIME / 10U;
@@ -721,7 +721,7 @@ void SETTINGS_SaveSettings(void)
 #ifdef ENABLE_DTMF_CALLING
     State[2] = gEeprom.PERMIT_REMOTE_KILL;
 #endif
-    EEPROM_WriteBuffer(0x0ED8, State, sizeof(State));
+    EEPROM_WriteBuffer(0x0ED8, State);
 
     State[0] = gEeprom.SCAN_LIST_DEFAULT;
 
@@ -741,7 +741,7 @@ void SETTINGS_SaveSettings(void)
     State[5] = gEeprom.SCANLIST_PRIORITY_CH2[1];
     State[6] = gEeprom.SCANLIST_PRIORITY_CH1[2];
     State[7] = gEeprom.SCANLIST_PRIORITY_CH2[2];
-    EEPROM_WriteBuffer(0x0F18, State, sizeof(State));
+    EEPROM_WriteBuffer(0x0F18, State);
 
     memset(State, 0xFF, sizeof(State));
     State[0]  = gSetting_F_LOCK;
@@ -775,7 +775,7 @@ void SETTINGS_SaveSettings(void)
     #endif
     State[7] = (State[7] & ~(3u << 6)) | ((gSetting_backlight_on_tx_rx & 3u) << 6);
 
-    EEPROM_WriteBuffer(0x0F40, State, sizeof(State));
+    EEPROM_WriteBuffer(0x0F40, State);
 
 #ifdef ENABLE_FEAT_F4HWN
     EEPROM_ReadBuffer(0x1FF0, State, sizeof(State));
@@ -819,7 +819,7 @@ void SETTINGS_SaveSettings(void)
 
     gEeprom.KEY_LOCK_PTT = gSetting_set_lck;
 
-    EEPROM_WriteBuffer(0x1FF0, State, sizeof(State));
+    EEPROM_WriteBuffer(0x1FF0, State);
 #endif
 
 #ifdef ENABLE_FEAT_F4HWN_VOL
@@ -849,7 +849,7 @@ void SETTINGS_SaveChannel(uint8_t Channel, uint8_t VFO, const VFO_Info_t *pVFO, 
 
         State._32[0] = pVFO->freq_config_RX.Frequency;
         State._32[1] = pVFO->TX_OFFSET_FREQUENCY;
-        EEPROM_WriteBuffer(OffsetVFO + 0, State._32, sizeof(State._32));
+        EEPROM_WriteBuffer(OffsetVFO + 0, State._32);
 
         State._8[0] =  pVFO->freq_config_RX.Code;
         State._8[1] =  pVFO->freq_config_TX.Code;
@@ -872,7 +872,7 @@ void SETTINGS_SaveChannel(uint8_t Channel, uint8_t VFO, const VFO_Info_t *pVFO, 
 #else
         State._8[7] =  pVFO->SCRAMBLING_TYPE;
 #endif
-        EEPROM_WriteBuffer(OffsetVFO + 8, State._8, sizeof(State._8));
+        EEPROM_WriteBuffer(OffsetVFO + 8, State._8);
 
         SETTINGS_UpdateChannel(Channel, pVFO, true, true, true);
 
@@ -893,11 +893,11 @@ void SETTINGS_SaveChannel(uint8_t Channel, uint8_t VFO, const VFO_Info_t *pVFO, 
 void SETTINGS_SaveBatteryCalibration(const uint16_t * batteryCalibration)
 {
     uint16_t buf[4];
-    EEPROM_WriteBuffer(0x1F40, batteryCalibration, sizeof(batteryCalibration));
+    EEPROM_WriteBuffer(0x1F40, batteryCalibration);
     EEPROM_ReadBuffer( 0x1F48, buf, sizeof(buf));
     buf[0] = batteryCalibration[4];
     buf[1] = batteryCalibration[5];
-    EEPROM_WriteBuffer(0x1F48, buf, sizeof(buf));
+    EEPROM_WriteBuffer(0x1F48, buf);
 }
 
 void SETTINGS_SaveChannelName(uint8_t channel, const char * name)
@@ -905,8 +905,8 @@ void SETTINGS_SaveChannelName(uint8_t channel, const char * name)
     uint16_t offset = channel * 16;
     uint8_t buf[16] = {0};
     memcpy(buf, name, MIN(strlen(name), 10u));
-    EEPROM_WriteBuffer(0x0F50 + offset, buf, sizeof(buf));
-    EEPROM_WriteBuffer(0x0F58 + offset, buf + 8, sizeof(buf + 8));
+    EEPROM_WriteBuffer(0x0F50 + offset, buf);
+    EEPROM_WriteBuffer(0x0F58 + offset, buf + 8);
 }
 
 void SETTINGS_UpdateChannel(uint8_t channel, const VFO_Info_t *pVFO, bool keep, bool check, bool save)
@@ -942,10 +942,10 @@ void SETTINGS_UpdateChannel(uint8_t channel, const VFO_Info_t *pVFO, bool keep, 
 #ifdef ENABLE_FEAT_F4HWN
         if(save)
         {
-            EEPROM_WriteBuffer(offset, state, sizeof(state));
+            EEPROM_WriteBuffer(offset, state);
         }
 #else
-        EEPROM_WriteBuffer(offset, state, sizeof(state));
+        EEPROM_WriteBuffer(offset, state);
 #endif
 
         gMR_ChannelAttributes[channel] = att;
@@ -1017,7 +1017,7 @@ State[1] = 0
     | (1 << 6)
 #endif
 ;
-    EEPROM_WriteBuffer(0x1FF0, State, sizeof(State));
+    EEPROM_WriteBuffer(0x1FF0, State);
 }
 
 #ifdef ENABLE_FEAT_F4HWN_RESUME_STATE
@@ -1027,7 +1027,7 @@ State[1] = 0
         EEPROM_ReadBuffer(0x0E78, State, sizeof(State));
         //State[3] = (gEeprom.CURRENT_STATE << 4) | (gEeprom.BATTERY_SAVE & 0x0F);
         State[7] = (gEeprom.VFO_OPEN & 0x01) | ((gEeprom.CURRENT_STATE & 0x07) << 1) | ((gEeprom.SCAN_LIST_DEFAULT & 0x07) << 4);
-        EEPROM_WriteBuffer(0x0E78, State, sizeof(State));
+        EEPROM_WriteBuffer(0x0E78, State);
     }
 #endif
 
@@ -1037,7 +1037,7 @@ State[1] = 0
         uint8_t State[8];
         EEPROM_ReadBuffer(0x1F88, State, sizeof(State));
         State[6] = gEeprom.VOLUME_GAIN;
-        EEPROM_WriteBuffer(0x1F88, State, sizeof(State));
+        EEPROM_WriteBuffer(0x1F88, State);
     }
 #endif
 
@@ -1050,7 +1050,7 @@ void SETTINGS_ResetTxLock(void)
         uint16_t OffsetVFO = channel * 16;
         EEPROM_ReadBuffer(OffsetVFO + 8, State, sizeof(State));
         State[4] |= (1 << 6);
-        EEPROM_WriteBuffer(OffsetVFO + 8, State, sizeof(State));
+        EEPROM_WriteBuffer(OffsetVFO + 8, State);
     }
 }
 #endif

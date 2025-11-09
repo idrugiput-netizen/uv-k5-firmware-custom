@@ -123,7 +123,7 @@ void FM_EraseChannels(void)
     memset(Template, 0xFF, sizeof(Template));
 
     for (unsigned i = 0; i < 5; i++)
-        EEPROM_WriteBuffer(0x0E40 + (i * 8), Template);
+        EEPROM_WriteBuffer(0x0E40 + (i * 8), Template, sizeof(Template));
 
     memset(gFM_Channels, 0xFF, sizeof(gFM_Channels));
 }

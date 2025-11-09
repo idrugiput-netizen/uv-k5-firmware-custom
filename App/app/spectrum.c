@@ -154,7 +154,7 @@ static void SaveSettings()
 
     Data[3] = (settings.scanStepIndex << 4) | (settings.stepsCount << 2) | settings.listenBw;
 
-    EEPROM_WriteBuffer(0x1FF0, Data);
+    EEPROM_WriteBuffer(0x1FF0, Data, sizeof(Data));
 }
 #endif
 
