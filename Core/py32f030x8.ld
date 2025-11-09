@@ -62,7 +62,8 @@ _Min_Stack_Size = 0x400; /* required amount of stack */
 MEMORY
 {
 RAM (xrw)      : ORIGIN = 0x20000000, LENGTH = 8K
-FLASH (rx)      : ORIGIN = 0x08001000, LENGTH = 60K
+/* za 2 MB čip */
+FLASH (rx) : ORIGIN = 0x08000000, LENGTH = 2M
 }
 
 /* Define output sections */
